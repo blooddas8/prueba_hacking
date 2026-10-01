@@ -1,0 +1,315 @@
+   /* Importar fuentes de Google */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+        /* Reset y configuración base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Variables CSS para tema */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --success-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            --text-primary: #2c3e50;
+            --white: #ffffff;
+            --shadow-soft: 0 20px 60px rgba(0,0,0,0.15);
+            --shadow-hover: 0 30px 80px rgba(0,0,0,0.2);
+            --border-radius: 20px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Fondo animado */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 20%, #f093fb 40%, #f5576c 60%, #4facfe 80%, #00f2fe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 12s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Efectos de partículas flotantes */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(1deg); }
+            66% { transform: translateY(10px) rotate(-1deg); }
+        }
+
+        /* Contenedor principal */
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: var(--border-radius);
+            padding: 4rem 3rem;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            overflow: visible;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            max-width: 600px;
+            width: 90%;
+            animation: containerEntrance 1s ease-out;
+            z-index: 1;
+        }
+
+        @keyframes containerEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Borde animado del contenedor */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--success-gradient);
+            border-radius: var(--border-radius);
+            z-index: -1;
+            animation: borderGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes borderGlow {
+            0% { 
+                filter: blur(5px);
+                opacity: 0.5;
+            }
+            100% { 
+                filter: blur(10px);
+                opacity: 0.8;
+            }
+        }
+
+        /* Efecto de confeti */
+        .container::after {
+            content: '🎉✨🎊💫⭐';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            animation: confetti 2s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        @keyframes confetti {
+            0%, 100% { 
+                transform: translateX(-50%) translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            50% { 
+                transform: translateX(-50%) translateY(-10px) rotate(180deg);
+                opacity: 0.8;
+            }
+        }
+
+        /* Título principal */
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            position: relative;
+            animation: titlePulse 2s ease-in-out infinite alternate;
+            background: var(--success-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes titlePulse {
+            0% { 
+                transform: scale(1);
+                text-shadow: 0 0 20px rgba(17, 153, 142, 0.3);
+            }
+            100% { 
+                transform: scale(1.02);
+                text-shadow: 0 0 30px rgba(17, 153, 142, 0.5);
+            }
+        }
+
+        /* Icono de check animado */
+        h2::before {
+            content: '✅';
+            display: block;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: checkBounce 1.5s ease-in-out infinite;
+        }
+
+        @keyframes checkBounce {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.2) rotate(-5deg); }
+            75% { transform: scale(1.1) rotate(5deg); }
+        }
+
+        /* Botón de regresar */
+        .btn-regresar {
+            display: inline-block;
+            padding: 1.2rem 2.5rem;
+            background: var(--primary-gradient);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            border: 2px solid transparent;
+            margin-top: 1rem;
+            animation: buttonPulse 3s ease-in-out infinite;
+        }
+
+        /* Efecto de ondas en el botón */
+        .btn-regresar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: var(--transition);
+        }
+
+        .btn-regresar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--secondary-gradient);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn-regresar:hover::before {
+            left: 100%;
+        }
+
+        .btn-regresar:hover::after {
+            opacity: 1;
+        }
+
+        .btn-regresar:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: var(--shadow-hover);
+            color: var(--white);
+            animation: none;
+        }
+
+        @keyframes buttonPulse {
+            0%, 100% { 
+                box-shadow: var(--shadow-soft);
+            }
+            50% { 
+                box-shadow: 0 25px 70px rgba(102, 126, 234, 0.3);
+            }
+        }
+
+        /* Mensaje flotante */
+        .floating-message {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            animation: messageFloat 4s ease-in-out infinite;
+            white-space: nowrap;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes messageFloat {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-8px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 3rem 2rem;
+                width: 95%;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            h2::before {
+                font-size: 3rem;
+            }
+            
+            .btn-regresar {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            .floating-message {
+                font-size: 0.8rem;
+                padding: 0.6rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 2rem 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .btn-regresar {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }

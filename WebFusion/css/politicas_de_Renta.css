@@ -1,0 +1,294 @@
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+    color: #e0e0e0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Sección principal de términos */
+#terminos {
+    max-width: 900px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #2a2a2a 0%, #1e1e1e 100%);
+    padding: 40px;
+    border-radius: 20px;
+    border: 2px solid #444;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+#terminos::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ffd700, #ffed4e, #ffd700);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Título principal */
+h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #ffd700, transparent);
+}
+
+/* Subtítulos */
+h3 {
+    color: #ffd700;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 35px 0 15px 0;
+    padding: 15px 20px;
+    background: rgba(255, 215, 0, 0.1);
+    border-left: 5px solid #ffd700;
+    border-radius: 0 10px 10px 0;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+h3::before {
+    content: '📋';
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+h3:hover {
+    background: rgba(255, 215, 0, 0.15);
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.2);
+}
+
+/* Párrafos */
+p {
+    margin-bottom: 20px;
+    text-align: justify;
+    color: #d0d0d0;
+    line-height: 1.8;
+    padding: 0 10px;
+    font-size: 1.1rem;
+    text-indent: 20px;
+}
+
+/* Texto en negrita */
+strong {
+    color: #ffd700;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Enlace de regreso */
+a {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+a::before {
+    content: '← ';
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+a:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.4);
+    background: linear-gradient(45deg, #ffed4e, #ffd700);
+}
+
+a:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+/* Footer */
+footer {
+    margin-top: 50px;
+    padding: 30px 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+    text-align: center;
+    border-top: 2px solid #ffd700;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ffd700, transparent);
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #ffd700;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.footer-logo:hover {
+    transform: scale(1.1) rotate(360deg);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+}
+
+footer p {
+    color: #ccc;
+    margin: 10px 0;
+    font-size: 0.95rem;
+}
+
+footer strong {
+    color: #ffd700;
+}
+
+/* Efectos de scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Efectos adicionales para mejorar la experiencia */
+#terminos {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    #terminos {
+        padding: 25px;
+        margin: 10px;
+    }
+    
+    h2 {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+    }
+    
+    h3 {
+        font-size: 1.4rem;
+        margin: 25px 0 12px 0;
+        padding: 12px 15px;
+    }
+    
+    p {
+        font-size: 1rem;
+        text-indent: 15px;
+    }
+    
+    a {
+        padding: 12px 25px;
+        font-size: 1rem;
+        width: 100%;
+        text-align: center;
+        margin-top: 25px;
+    }
+    
+    .footer-logo {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    #terminos {
+        padding: 20px;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    h3 {
+        font-size: 1.2rem;
+        padding: 10px;
+    }
+    
+    p {
+        font-size: 0.95rem;
+        text-indent: 10px;
+    }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Selección de texto personalizada */
+::selection {
+    background: rgba(255, 215, 0, 0.3);
+    color: #fff;
+}
